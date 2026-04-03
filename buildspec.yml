@@ -9,7 +9,7 @@ phases:
       - yum install -y terraform
 
   pre_build:
-  commands:
+    commands:
     - echo "Current directory"
     - pwd
     - echo "List files"
