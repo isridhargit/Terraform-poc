@@ -10,8 +10,6 @@ phases:
 
   pre_build:
     commands:
-      - echo "Changing to Terraform directory"
-      - cd terraform-poc25
       - terraform version
       - terraform init -input=false
 
