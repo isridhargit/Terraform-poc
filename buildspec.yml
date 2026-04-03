@@ -10,11 +10,8 @@ phases:
 
   pre_build:
     commands:
-      - echo "DEBUG: current directory"
-      - pwd
-      - echo "DEBUG: list files"
-      - ls -l
-      - echo "Terraform version"
+      - echo "Changing to Terraform directory"
+      - cd terraform-poc25
       - terraform version
       - terraform init -input=false
 
