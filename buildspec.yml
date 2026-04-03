@@ -10,14 +10,18 @@ phases:
 
   pre_build:
     commands:
-    - echo "Current directory"
+    
+pre_build:
+  commands:
+    - echo "==== Terraform Init Debug Start ===="
     - pwd
-    - echo "List files"
-    - ls -l
-    - echo "Show backend.tf"
+    - ls -la
+    - echo "---- backend.tf ----"
     - cat backend.tf
-    - echo "Terraform init with debug"
-    - terraform init -input=false -no-color
+    - echo "---- provider.tf ----"
+    - cat provider.tf
+    - echo "---- Terraform Init ----"
+    - terraform init -input=false -no-color -reconfigure
 
   build:
     commands:
