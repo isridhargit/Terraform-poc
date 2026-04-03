@@ -9,9 +9,15 @@ phases:
       - yum install -y terraform
 
   pre_build:
-    commands:
-      - terraform version
-      - terraform init -input=false
+  commands:
+    - echo "Current directory"
+    - pwd
+    - echo "List files"
+    - ls -l
+    - echo "Show backend.tf"
+    - cat backend.tf
+    - echo "Terraform init with debug"
+    - terraform init -input=false -no-color
 
   build:
     commands:
