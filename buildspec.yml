@@ -10,20 +10,15 @@ phases:
 
   pre_build:
     commands:
-    
-pre_build:
-  commands:
-    - echo "==== Terraform Init Debug Start ===="
-    - pwd
-    - ls -la
-    - echo "---- backend.tf ----"
-    - cat backend.tf
-    - echo "---- provider.tf ----"
-    - cat provider.tf
-    - echo "---- Terraform Init ----"
-    - terraform init -input=false -no-color -reconfigure
+      - echo "Terraform version"
+      - terraform version
+      - echo "Initializing Terraform"
+      - terraform init -input=false
 
   build:
     commands:
+      - echo "Running Terraform plan"
       - terraform plan
+      - echo "Applying Terraform"
       - terraform apply -auto-approve
+
