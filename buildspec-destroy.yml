@@ -1,0 +1,15 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - apt-get update -y
+      - apt-get install -y terraform
+
+  pre_build:
+    commands:
+      - terraform init
+
+  build:
+    commands:
+      - terraform destroy -auto-approve

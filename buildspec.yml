@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Installing Terraform"
+      - apt-get update -y
+      - apt-get install -y curl unzip
+      - curl -fsSL https://apt.releases.hashicorp.com/gpg | gpg --dearmor -o /usr/share/keyrings/hashicorp.gpg
+      - echo "deb [signed-by=/usr/share/keyrings/hashicorp.gpg] https://apt.releases.hashicorp.com jammy main" > /etc/apt/sources.list.d/hashicorp.list
+      - apt-get update && apt-get install -y terraform
+
+  pre_build:
+    commands:
+      - terraform version
+      - terraform init
+
+  build:
+    commands:
+      - terraform plan
+      - terraform apply -auto-approve
