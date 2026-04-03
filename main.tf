@@ -14,7 +14,7 @@ module "vpc" {
 module "ec2" {
   source         = "./modules/ec2"
   instance_name  = "poc-25-ec2"
-  instance_type  = "t3.micro"
+  instance_type  = "t2.micro"
   ami_id         = "ami-0f5ee92e2d63afc18" # Ubuntu 22.04 ap-south-1
   subnet_id      = module.vpc.public_subnet_id
   vpc_id         = module.vpc.vpc_id
